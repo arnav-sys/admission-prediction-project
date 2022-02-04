@@ -4,3 +4,4 @@ numpy
 joblib
 flask
 matplotlib
+gunicorn

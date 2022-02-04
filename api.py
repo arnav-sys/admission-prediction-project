@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 import pandas as pd
 import joblib
 
-model = joblib.load("../model.sav")
+model = joblib.load("./model.sav")
 
 app = Flask(__name__)
 
@@ -26,7 +26,7 @@ def run_model():
         data = request.get_json()
         df= pd.json_normalize(data)
         Std = StandardScaler()
-        df2 =pd.read_csv("../Admission_Prediction.csv")
+        df2 =pd.read_csv("./Admission_Prediction.csv")
         Std.fit(df2.drop(columns=["Serial No.","Chance of Admit"]))
         df = Std.transform(df)
         predictions = model.predict(df)
